@@ -1,0 +1,142 @@
+import 'package:flutter/material.dart';
+import 'package:hack/ui/welocme.dart';
+
+class Introduction extends StatelessWidget {
+  const Introduction({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: const Color(0xfff0f1f5),
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(18),
+          height: size.height,
+          width: size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 150,
+                child: RichText(
+                  text: const TextSpan(
+                      text: 'Your',
+                      style: TextStyle(
+                        fontSize: 28,
+                        color: Color(0xffff4590),
+                        fontWeight: FontWeight.bold,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'Social Interaction',
+                            style: TextStyle(
+                              color: Colors.black87,
+                            ))
+                      ]),
+                ),
+              ),
+              Positioned(
+                bottom: 100,
+                left: 0,
+                right: 0,
+                child: Padding(
+                    padding: const EdgeInsets.all(40.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (_) => const Welcome()));
+                      },
+                      child: Container(
+                        height: 50,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Login Here',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )),
+              )
+              // SizedBox(
+              //   width: 80,
+              //   height: 80,
+              //   child: Image.asset('assets/images/social_image.png'),
+              // ),
+              // Container(
+              //   height: size.height * 0.3,
+              //   decoration: BoxDecoration(
+              //     color: Colors.white,
+              //     borderRadius: const BorderRadius.all(
+              //       Radius.circular(20),
+              //     ),
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.grey.withOpacity(0.2),
+              //         spreadRadius: 2,
+              //         blurRadius: 20,
+              //         offset: const Offset(0, 0),
+              //       )
+              //     ],
+              //   ),
+              //   child: Stack(
+              //     clipBehavior: Clip.none,
+              //     children: [
+              //       const Positioned(
+              //         top: 10,
+              //         left: 20,
+              //         child: Text(
+              //           'Login Here',
+              //           style: TextStyle(
+              //             fontSize: 20,
+              //             fontWeight: FontWeight.w500,
+              //           ),
+              //         ),
+              //       ),
+              //       Positioned(
+              //         top: 120,
+              //         left: 20,
+              //         child: Column(
+              //           children: [
+              //             Row(
+              //               children: [
+              //                 const Icon(Icons.mail_outline, color: Colors.grey),
+              //                 Container(
+              //                   padding: const EdgeInsets.only(left: 10),
+              //                   width: 300,
+              //                   child: const TextField(
+              //                     cursorColor: Colors.grey,
+              //                     style: TextStyle(color: Colors.black54),
+              //                     decoration: InputDecoration(
+              //                       border: InputBorder.none,
+              //                       hintText: 'example@gmail.com',
+              //                     ),
+              //                   ),
+              //                 )
+              //               ],
+              //             ),
+              //             SizedBox(
+              //               width: size.width * 0.8,
+              //               child: const Divider(color: Colors.grey),
+              //             )
+              //           ],
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              // )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
